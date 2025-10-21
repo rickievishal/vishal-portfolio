@@ -20,12 +20,12 @@ import texture from "../assets/images/photoTexture.jpg";
 import CurvedLoop from "../Components/CurvedLoop/CurvedLoop";
 import fireProject from "../assets/images/fireProject.png";
 import docker from "../assets/images/dockerLogo.png";
-
+import framer from "../assets/images/FramerLogo.svg"
 const HomePage = () => {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const stacks = [react, mongo, node, docker];
+  const stacks = [react, mongo, node, framer, docker];
   useEffect(() => {
     const cursormove = (e) => {
       cursorX.set(e.clientX);
@@ -229,15 +229,9 @@ const HomePage = () => {
                     />
                   </div>
                   <ol className="w-full flex flex-col ">
-                    <li className="text-white text-[30pt]">
-                      <p className="text-left">Resume</p>
-                    </li>
-                    <li className="text-white text-[30pt]">
-                      <p className="text-left">Home</p>
-                    </li>
-                    <li className="text-white text-[30pt]">
-                      <p className="text-left">Home</p>
-                    </li>
+                    <li className="text-white text-[30pt] flex">
+                      <GoDownload className="mr-2 mt-2 text-[#FF145C]" />  <a href="https://drive.google.com/file/d/128lyuvVBWXlssKmTHNXOs87FXMHs9ftE/view?usp=sharing" className="text-left">Resume</a>
+                    </li> 
                   </ol>
                 </div>
               </motion.div>
@@ -301,11 +295,11 @@ const HomePage = () => {
           style={{ zIndex: 50 }}
         >
           <nav
-            className="max-w-7xl w-full h-[55px] flex items-center justify-between px-[7px] py-[7px] rounded-r-full rounded-l-full border-[1px] border-white/10 backdrop:blur-3xl z-[30] backdrop-saturate-[200%] bg-[rgba(139,139,139,0.22)]"
+            className="max-w-7xl w-full h-[55px] flex items-center justify-between px-[7px] py-[7px] rounded-r-full rounded-l-full border-[1px] border-white/10 backdrop:blur-[1000px] z-[30] backdrop-saturate-[200%] bg-[rgba(139,139,139,0.22)]"
             style={{ zIndex: 50 }}
           >
             <ul>
-              <li className="px-[7px]">itsmevishal.dev</li>
+              <li className="px-[7px] bg-blend-difference text-[#f1f1f1]">itsme<span className="text-[#FF145C]">vishal.</span>dev</li>
             </ul>
             <ol className="block lg:hidden">
               <TbMenu
@@ -318,9 +312,9 @@ const HomePage = () => {
             </ol>
             <ol className="flex gap-x-2 h-full hidden lg:flex">
               <li className="h-full bg-[rgba(159,159,159,0.42)] rounded-r-full rounded-l-full border-[1px] border-[rgb(189,189,189)] border-t-[rgb(143,143,143)] border-b-0 backdrop-saturate-200 hover:bg-[rgba(205,205,205,0.42)] transition-all duration-300 ease-in-out">
-                <button className="h-full flex flex-row items-center justify-center px-[15px]">
-                  <GoDownload className="mr-2" /> Resume
-                </button>
+                 <a href="https://drive.google.com/file/d/128lyuvVBWXlssKmTHNXOs87FXMHs9ftE/view?usp=sharing" className="h-full flex flex-row items-center justify-center px-[15px]">
+                  <GoDownload className="mr-2 text-[#FF145C]" /> Resume
+                </a>
               </li>
             </ol>
           </nav>
@@ -346,15 +340,16 @@ const HomePage = () => {
             Hello
           </div>
           <div className="text-white text-lg pop  flex flex-col justify-center items-center">
-            <p className="font-thin text-[13pt]">hey there im Vishal</p>
+            <p className="font-thin text-[13pt]">Hey there i'm Vishal</p>
             <p className="w-[300px] text-center text-sm mt-2 font-thin">
-              Nextjs | nodejs | electronics | brand pursuing Electronics and
-              Communications Engineering @MEPCO frontend dev @esubaleka.com{" "}
+              Nextjs | nodejs | electronics | brand <br /> pursuing Electronics
+              and Communications Engineering @MEPCO <br /> Frontend dev
+              @esubaleka.com
             </p>
           </div>
-          <div className="w-full flex flex-col justify-center items-center text-white pop font-thin mt-[50px]">
+          <div className="w-full flex flex-col justify-center items-center text-white pop font-thin mt-[50px] ">
             <div>Stacks</div>
-            <div className="w-full flex justify-center items-center mt-8 gap-x-3">
+            <div className="w-full flex flex-wrap justify-center items-center mt-4 gap-x-3 gap-y-2 px-16">
               {stacks.map((imgUrl) => (
                 <div className="w-[60px] h-[60px] border-[1px] border-white/20 rounded-xl overflow-hidden ">
                   <img className="w-full h-full object-cover" src={imgUrl} />
@@ -387,16 +382,42 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <section className="w-full">
-          <div className="w-full max-w-7xl mx-auto py-20 flex flex-col lg:flex-row justify-center items-center gap-x-4">
+        <section className="w-full min-h-[calc(100vh-100px)] flex items-center justify-center">
+          <div className="w-full max-w-7xl mx-auto py-20 flex flex-col lg:flex-row justify-center items-center gap-x-20">
             <div className="w-full flex flex-col items-center justify-center lg:justify-content-end lg:items-end">
-              <p className="leading-tight">hey, I'm Vishal</p>
-              <h1 className="text-[40pt] lg:text-[60pt] leading-[70px] text-center lg:text-right text-[#f1f1f1] text-wrap ">
-                I ❤️ buiding cool stuffs.
-              </h1>
+              <motion.p
+                initial={{ y: 50, filter: "blur(40px)" }}
+                whileInView={{ y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, ease: "circInOut", delay: 0.5 }}
+                viewport={{ once: true }}
+                className="leading-tight"
+              >
+                hey, I'm Vishal
+              </motion.p>
+              <motion.h1
+                initial={{ y: 50, filter: "blur(30px)" }}
+                whileInView={{ y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, ease: "circInOut", delay: 0.1 }}
+                viewport={{ once: true }}
+                className="text-[40pt] lg:text-[60pt] leading-[70px] text-center lg:text-right text-[#f1f1f1] text-wrap "
+              >
+                I ❤️ building <br/>cool stuffs.
+              </motion.h1>
             </div>
             <div className="w-full flex justify-center items-center mt-4 lg:mt-0 lg:justify-start lg:items-start">
-              <div className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] bg-[#d1d1d1] relative overflow-hidden rounded-[30px] ">
+              <motion.div
+                initial={{ scale: 1 }}
+                whileInView={{
+                  scale: [
+                    1, 1.5,1.5,1
+                  ],
+                  rotate: [0, -5, 5, -5, 5, 0],
+                  
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "circInOut", delay: 0.6 }}
+                className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] bg-[#d1d1d1] relative overflow-hidden rounded-[30px] "
+              >
                 <img
                   src={texture}
                   className="w-full h-full object-cover absolute left-0 right-0"
@@ -410,14 +431,21 @@ const HomePage = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
         <section className="w-full">
           <div className="w-full max-7xl mx-auto py-20 flex flex-col px-4">
             <h1 className="text-[50pt] text-[#f1f1f1]">Projects</h1>
-            <div className="w-full lg:h-[300px] max-w-lg lg:max-w-4xl mx-auto flex flex-col mt-10 relative overflow-hidden rounded-[30px] lg:flex-row justify-start items-start p-[10px]">
+            <motion.div initial={{ scale: 1 }}
+                whileInView={{
+                  scale: [
+                    1, 1.2,1.2,1
+                  ],
+                  rotate: [0, -5, 5, -5, 5, 0],
+                  
+                }} viewport={{ once: true }} transition={{duration:1,delay:0.2,ease:"circInOut"}} className="w-full lg:h-[300px] max-w-lg lg:max-w-4xl mx-auto flex flex-col mt-10 relative overflow-hidden rounded-[30px] lg:flex-row justify-start items-start p-[10px]">
               <img
                 src={texture}
                 className="absolute top-0 left-0 w-full h-full object-cover"
@@ -432,7 +460,7 @@ const HomePage = () => {
               </div>
               <div className="w-full flex flex-col justify-start items-start lg:mx-10 text-[rgb(27,27,27)] z-20">
                 <h1 className=" text-[30pt] leading-[35px] mt-4 text-left">
-                  AI - Movified Name Genrator{" "}
+                  AI - Movified Name Generator{" "}
                 </h1>
                 <p className="text-left text-wrap mt-2">
                   A web application that generates unique and creative names for
@@ -448,18 +476,32 @@ const HomePage = () => {
                   Preview
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
         <section className="w-full min-h-[calc(100vh-200px)] flex flex-col justify-center items-center relative">
           <img src="" alt="" />
           <div className="w-full">
-            <h2 className="elegant text-[40pt] leading-[50px]">
+            <motion.h2
+              initial={{ y: 100, filter: "blur(30px)" }}
+              whileInView={{ y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: "circInOut" }}
+              viewport={{ once: true }}
+              className="elegant text-[40pt] leading-[50px]"
+            >
               " Design is not just what it looks like and feels like.
               <br /> Design is how it works. "
-            </h2>
+            </motion.h2>
             <div className="flex items-center justify-center">
-              <p className="text-white text-lg pop mt-10">Steve Jobs</p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "circInOut", delay: 0.5 }}
+                className="text-white text-lg pop mt-10"
+              >
+                Steve Jobs
+              </motion.p>
             </div>
           </div>
         </section>
@@ -510,7 +552,7 @@ const HomePage = () => {
               onMouseEnter={() => setvarient("texthoverdiscord")}
               onMouseLeave={() => setvarient("default")}
             >
-              <div className="col-span-3 flex flex-col justify-center items-end">
+              <div className="col-span-3 flex flex-col justify-center items-end" >
                 <p className="text-[35pt] sm:text-[45pt] lg:text-[60pt] leading-tight font-thin">
                   Discord
                 </p>

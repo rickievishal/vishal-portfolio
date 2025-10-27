@@ -178,9 +178,9 @@ const HomePage = () => {
       <GradualBlur
         target="page"
         position="top"
-        height="8rem"
-        strength={1}
-        divCount={10}
+        height="10rem"
+        strength={.9}
+        divCount={3}
         curve="bezier"
         exponential={true}
         opacity={1}
@@ -190,8 +190,8 @@ const HomePage = () => {
         target="page"
         position="bottom"
         height="8rem"
-        strength={1}
-        divCount={10}
+        strength={.9}
+        divCount={3}
         curve="bezier"
         exponential={true}
         opacity={1}
@@ -295,7 +295,7 @@ const HomePage = () => {
           style={{ zIndex: 50 }}
         >
           <nav
-            className="max-w-7xl w-full h-[55px] flex items-center justify-between px-[7px] py-[7px] rounded-r-full rounded-l-full border-[1px] border-white/10 backdrop:blur-[1000px] z-[30] backdrop-saturate-[200%] bg-[rgba(139,139,139,0.22)]"
+            className="max-w-7xl w-full h-[55px] flex items-center justify-between px-[7px] py-[7px] rounded-r-full rounded-l-full border-[1px] border-white/10  z-[30] backdrop-saturate-[200%] bg-[rgba(139,139,139,0.22)] shadow-lg"
             style={{ zIndex: 50 }}
           >
             <ul>
@@ -604,7 +604,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="w-full flex justify-center items-center text-white pop font-thin z-[60]">
-          <p>all rights reserved @vishal</p>
+          <p>All rights reserved @vishal 2025</p>
         </div>
       </div>
     </section>
